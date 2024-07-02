@@ -32,8 +32,33 @@ sudo pacman -S openssh vi
 Under `/etc/containers/` there is a file called `registries.conf`. It is complemented by `man 5 containers-registries.conf`.
 
 ```bash
-sudo cat << EOF > /etc/containers/registries.conf.d/99-dockerio.conf
+# vi /etc/containers/registries.conf
+...
 [registries.search]
 registries = ['docker.io']
-EOF
+...
+```
+
+## Setup Python Environment
+
+install pip
+```bash
+sudo pacman -S python-pip
+```
+
+then, if error message ('externally-managed-environment') is occured,
+
+```bash
+# remove file
+sudo rm /usr/lib/python3.11/EXTERNALLY-MANAGED
+```
+
+
+## Setup Gstreamer Enviroments
+
+```
+sudo pacman -S \
+  gstreamer \
+  gst-libav ffmpeg \
+  gst-plugins-bad gst-plugins-good gst-plugins-bad
 ```
